@@ -19,4 +19,24 @@ router.get('/', (req, res) => {
     
 })
 
+router.delete('/:id', (req, res) => {
+    console.log('delete an item', req.params.id);
+    let id =req.params.id;
+    const queryText = `
+    DELETE FROM "items"
+    WHERE "id" = $1;
+    `;
+
+    const values =[id];
+
+    pool.query(queryText, values)
+    .then(result => {
+        res.sendStatus(204);
+    }).catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+    })
+    
+});
+
 module.exports = router;
