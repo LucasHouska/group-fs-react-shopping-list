@@ -14,7 +14,7 @@ function App() {
     const deleteItem = (itemToDelete) => {
         console.log('you want to delete something...', itemToDelete);
 
-        axios.delete('/list/${id}')
+        axios.delete(`/list/${itemToDelete.id}`)
         .then(function(response) {
             console.log('item deleted');
             getItems();
