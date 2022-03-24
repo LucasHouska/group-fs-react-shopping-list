@@ -13,7 +13,14 @@ function App() {
     
     const clearList = () => {
         console.log('clearList func')
-
+        axios.delete(`/list`)
+        .then( response => {
+            console.log('cleared:', response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
     }
     
     const getItems = () => {
