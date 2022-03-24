@@ -1,19 +1,26 @@
 import { useState } from 'react';
 
-function ShoppingForm() {
+function ShoppingForm({addItem}) {
+    const [itemName, setName] = useState({ itemName: '' });
+    const [itemQuantity, setQuantity] = useState({ itemQuantity: '' });
+    const [itemUnit, setUnit] = useState({ itemUnit: '' })
+
     const handleSubmit = () => {
-        const [itemName, setName] = useState({ itemName: '' });
-        const [itemQuantity, setQuantity] = useState({itemQuantity: ''});
-        const [unit, setUnit] = useState
+        event.preventDefault();
 
         console.log('Passing form inputs to POST...')
 
-        // addItem();
+        let newItem = {itemName, itemQuantity, itemUnit}
+
+
+        addItem(newItem);
+
+        console.log(newItem);
     }
     return (
         <>
             <h3>Add an Item</h3>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input
                     onChange={(event) => setName({ itemName: event.target.value })}
                     placeholder="name"
@@ -25,8 +32,12 @@ function ShoppingForm() {
                     placeholder="quantity"
                     value={itemQuantity.itemQuantity}
                 />
-                <input placeholder="unit" />
-                <button onClick={handleSubmit}>SAVE</button>
+                <input
+                    onChange={(event) => setUnit({ itemUnit: event.target.value })}
+                    placeholder="quantity"
+                    value={itemUnit.itemUnit}
+                />
+                <input type="submit" value="Save" />
             </form>
         </>
     )

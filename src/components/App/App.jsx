@@ -22,8 +22,14 @@ function App() {
             })
     }
 
-    const addItem = () => {
-        axios.post('/list', )
+    const addItem = (itemToAdd) => {
+        axios.post('/list', itemToAdd)
+        .then(response => {
+            console.log(response);
+            getItems();
+        }).catch(error => {
+            console.log(error);
+        })
     }
 
     useEffect(() => {
@@ -35,7 +41,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <ShoppingForm />
+                <ShoppingForm 
+                addItem={addItem}
+                />
                 <ShoppingList 
                 shoppingList={shoppingList}
                 />
