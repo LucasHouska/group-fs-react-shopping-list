@@ -16,7 +16,21 @@ router.get('/', (req, res) => {
     }).catch(error => {
         res.sendStatus(500);
     })
-    
+})
+
+router.delete('/', (req, res) => {
+    console.log('clear DELETE route')
+
+    const queryText = `TRUNCATE TABLE "items"`
+
+    pool.query(queryText)
+    .then( result => {
+        res.sendStatus(200);
+    })
+    .catch( error => {
+        console.log(error);
+        res.sendStatus(500);
+    })
 })
 
 module.exports = router;

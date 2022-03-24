@@ -10,6 +10,19 @@ import './App.css';
 function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
+    
+    const clearList = () => {
+        console.log('clearList func')
+        axios.delete(`/list`)
+        .then( response => {
+            console.log('cleared:', response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+    
     const getItems = () => {
 
         axios.get('/list')
@@ -40,6 +53,7 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
+                clearList={clearList}
                 />
             </main>
         </div>
