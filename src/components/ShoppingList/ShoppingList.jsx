@@ -1,13 +1,18 @@
 import Items from '../Items/Items.jsx'
 
-function ShoppingList({ shoppingList }) {
-    return (
+function ShoppingList({ shoppingList, clearList}) {
         
+    const handleClear = () => {
+        console.log('handleClear func');
+        clearList()
+    }
+    
+    return (
         <>
             <div>
                 <h3>Shopping List</h3>
                 <button>Reset</button>
-                <button>Clear</button>
+                <button onClick={handleClear}>Clear</button>
             </div>
             <div>
                 {shoppingList.map(item =>
@@ -17,7 +22,6 @@ function ShoppingList({ shoppingList }) {
                     />)}
             </div>
         </>
-
     )
 }
 

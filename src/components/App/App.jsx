@@ -10,6 +10,12 @@ import './App.css';
 function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
+    
+    const clearList = () => {
+        console.log('clearList func')
+
+    }
+    
     const getItems = () => {
 
         axios.get('/list')
@@ -40,6 +46,7 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
+                clearList={clearList}
                 />
             </main>
         </div>
