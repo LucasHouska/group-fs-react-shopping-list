@@ -12,7 +12,7 @@ function App() {
     const [shoppingList, setShoppingList] = useState([]);
 
     const deleteItem = (itemToDelete) => {
-        console.log('you want to delete somehting...', creatureToDelete);
+        console.log('you want to delete somehthing...', itemToDelete);
     };
 
 
