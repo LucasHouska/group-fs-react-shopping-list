@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 function ShoppingForm() {
     const handleSubmit = () => {
-        const [name, setName] = useState('');
-        const [quantity, setQuantity] = useState('');
+        const [itemName, setName] = useState({ itemName: '' });
+        const [itemQuantity, setQuantity] = useState({itemQuantity: ''});
         const [unit, setUnit] = useState
 
         console.log('Passing form inputs to POST...')
@@ -14,8 +14,17 @@ function ShoppingForm() {
         <>
             <h3>Add an Item</h3>
             <form>
-                <input placeholder="name" />
-                <input placeholder="quantity" />
+                <input
+                    onChange={(event) => setName({ itemName: event.target.value })}
+                    placeholder="name"
+                    value={itemName.itemName}
+
+                />
+                <input
+                    onChange={(event) => setQuantity({ itemQuantity: event.target.value })}
+                    placeholder="quantity"
+                    value={itemQuantity.itemQuantity}
+                />
                 <input placeholder="unit" />
                 <button onClick={handleSubmit}>SAVE</button>
             </form>
