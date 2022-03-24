@@ -1,4 +1,4 @@
-function Items({item}) {
+function Items({item, deleteItem}) {
     return (
         <>
             <div>

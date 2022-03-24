@@ -10,6 +10,13 @@ import './App.css';
 function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
+
+    const deleteItem = (itemToDelete) => {
+        console.log('you want to delete somehting...', creatureToDelete);
+    };
+
+
+
     const getItems = () => {
 
         axios.get('/list')
@@ -40,6 +47,7 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
+                deleteItem={deleteItem}
                 />
             </main>
         </div>

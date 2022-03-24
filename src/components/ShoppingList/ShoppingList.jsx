@@ -1,6 +1,6 @@
 import Items from '../Items/Items.jsx'
 
-function ShoppingList({ shoppingList }) {
+function ShoppingList({ shoppingList, deleteItem }) {
     return (
         
         <>
@@ -14,6 +14,7 @@ function ShoppingList({ shoppingList }) {
                     <Items 
                     key = {item.id}
                     item = {item}
+                    deleteItem = {deleteItem}
                     />)}
             </div>
         </>
