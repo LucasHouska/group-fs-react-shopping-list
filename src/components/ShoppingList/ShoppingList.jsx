@@ -3,7 +3,7 @@ import Items from '../Items/Items.jsx'
 
 
 
-function ShoppingList({ shoppingList, clearList}) {
+function ShoppingList({ shoppingList, clearList, deleteItem}) {
 
         
     const handleClear = () => {
