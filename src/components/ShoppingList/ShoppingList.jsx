@@ -1,6 +1,10 @@
 import Items from '../Items/Items.jsx'
 
+
+
+
 function ShoppingList({ shoppingList, clearList}) {
+
         
     const handleClear = () => {
         console.log('handleClear func');
@@ -19,6 +23,7 @@ function ShoppingList({ shoppingList, clearList}) {
                     <Items 
                     key = {item.id}
                     item = {item}
+                    deleteItem = {deleteItem}
                     />)}
             </div>
         </>
