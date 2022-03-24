@@ -22,6 +22,10 @@ function App() {
             })
     }
 
+    const addItem = () => {
+        axios.post('/list', )
+    }
+
     useEffect(() => {
         getItems();
     }, [])
@@ -31,13 +35,7 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <h3>Add an Item</h3>
-                <form>
-                    <input placeholder="name" />
-                    <input placeholder="quantity" />
-                    <input placeholder="unit" />
-                    <button>SAVE</button>
-                </form>
+                <ShoppingForm />
                 <ShoppingList 
                 shoppingList={shoppingList}
                 />
