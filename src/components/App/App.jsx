@@ -11,6 +11,7 @@ function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
 
+
     const deleteItem = (itemToDelete) => {
         console.log('you want to delete something...', itemToDelete);
 
@@ -24,6 +25,21 @@ function App() {
     };
 
 
+
+
+    
+    const clearList = () => {
+        console.log('clearList func')
+        axios.delete(`/list`)
+        .then( response => {
+            console.log('cleared:', response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+    
 
     const getItems = () => {
 
@@ -55,7 +71,11 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
+
                 deleteItem={deleteItem}
+
+                clearList={clearList}
+
                 />
             </main>
         </div>
