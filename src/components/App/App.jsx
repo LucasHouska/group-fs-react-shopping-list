@@ -53,6 +53,16 @@ function App() {
             })
     }
 
+    const addItem = (itemToAdd) => {
+        axios.post('/list', itemToAdd)
+        .then(response => {
+            console.log(response);
+            getItems();
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     useEffect(() => {
         getItems();
     }, [])
@@ -62,13 +72,9 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <h3>Add an Item</h3>
-                <form>
-                    <input placeholder="name" />
-                    <input placeholder="quantity" />
-                    <input placeholder="unit" />
-                    <button>SAVE</button>
-                </form>
+                <ShoppingForm 
+                addItem={addItem}
+                />
                 <ShoppingList 
                 shoppingList={shoppingList}
 
