@@ -61,7 +61,7 @@ router.put(`/`, (req, res) => {
     SET "purchased" = FALSE;
     `;
 
-    Pool.query(queryText)
+    pool.query(queryText)
     .then(result => {
         res.sendStatus(200);
     }).catch(err => {

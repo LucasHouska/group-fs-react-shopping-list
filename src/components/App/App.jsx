@@ -24,8 +24,8 @@ function App() {
         })
     };
 
-    const clearPurchased = () => {
-        console.log('in clearPurchased');
+    const resetItems = () => {
+        console.log('in resetItems');
         axios.put(`/list`)
         .then( response => {
             console.log(`list reset`);
@@ -79,6 +79,7 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
+                clearPurchased={resetItems}
 
                 deleteItem={deleteItem}
 
