@@ -13,12 +13,12 @@ function ShoppingList({ shoppingList, clearList, deleteItem}) {
     
     return (
         <>
-            <div>
-                <h3>Shopping List</h3>
+            <div className='shoppingListHeader'>
+                <h3 className='colorfulText'>Shopping List</h3>
                 <button>Reset</button>
                 <button onClick={handleClear}>Clear</button>
             </div>
-            <div>
+            <div className='itemList'>
                 {shoppingList.map(item =>
                     <Items 
                     key = {item.id}
