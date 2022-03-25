@@ -1,4 +1,44 @@
+body {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
 main {
   width: 90%;
   margin: auto;
+}
+
+button {
+  margin: 0px 5px;
+}
+
+input {
+  margin: 0px 5px;
+}
+
+.form {
+  text-align: center;
+  margin: 20px;
+}
+
+.shoppingListHeader {
+  text-align: center;
+  margin: 20px;
+}
+
+.itemList {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  border: 1px solid black;
+  text-align: center;
+  margin: 20px;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.colorfulText {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
 }

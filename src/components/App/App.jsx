@@ -11,7 +11,20 @@ function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
 
+    const purchaseItem = (itemToPurchase) => {
+        console.log('purchaseItem func')
 
+        axios.put(`/list/${itemToPurchase.id}`)
+        .then( response => {
+            console.log('purchased:', itemToPurchase.name);
+            console.log(response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+    
     const deleteItem = (itemToDelete) => {
         console.log('you want to delete something...', itemToDelete);
 
@@ -33,8 +46,7 @@ function App() {
         }).catch(function(err) {
             console.log(err);
         })
-    };
-    
+    };  
 
     const clearList = () => {
         console.log('clearList func')
@@ -47,7 +59,6 @@ function App() {
             console.log(error)
         })
     }
-    
 
     const getItems = () => {
 
@@ -61,6 +72,16 @@ function App() {
             })
     }
 
+    const addItem = (itemToAdd) => {
+        axios.post('/list', itemToAdd)
+        .then(response => {
+            console.log(response);
+            getItems();
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     useEffect(() => {
         getItems();
     }, [])
@@ -70,21 +91,14 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <h3>Add an Item</h3>
-                <form>
-                    <input placeholder="name" />
-                    <input placeholder="quantity" />
-                    <input placeholder="unit" />
-                    <button>SAVE</button>
-                </form>
+                <ShoppingForm 
+                addItem={addItem}
+                />
                 <ShoppingList 
-                shoppingList={shoppingList}
-                resetItems={resetItems}
-
-                deleteItem={deleteItem}
-
-                clearList={clearList}
-
+                    shoppingList={shoppingList}
+                    deleteItem={deleteItem}
+                    clearList={clearList}
+                    purchaseItem={purchaseItem}
                 />
             </main>
         </div>

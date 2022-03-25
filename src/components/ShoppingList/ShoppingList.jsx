@@ -1,10 +1,7 @@
 import Items from '../Items/Items.jsx'
 
 
-
-
-function ShoppingList({ shoppingList, clearList, deleteItem, resetItems}) {
-
+function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem, resetItems}) {
         
     const handleClear = () => {
         console.log('handleClear func');
@@ -18,17 +15,18 @@ function ShoppingList({ shoppingList, clearList, deleteItem, resetItems}) {
     
     return (
         <>
-            <div>
-                <h3>Shopping List</h3>
+            <div className='shoppingListHeader'>
+                <h3 className='colorfulText'>Shopping List</h3>
                 <button onClick={handleReset}>Reset</button>
                 <button onClick={handleClear}>Clear</button>
             </div>
-            <div>
+            <div className='itemList'>
                 {shoppingList.map(item =>
                     <Items 
                     key = {item.id}
                     item = {item}
                     deleteItem = {deleteItem}
+                    purchaseItem = {purchaseItem}
                     />)}
             </div>
         </>
