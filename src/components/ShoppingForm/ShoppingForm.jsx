@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 function ShoppingForm({addItem}) {
-    const [itemName, setName] = useState({ itemName: '' });
-    const [itemQuantity, setQuantity] = useState({ itemQuantity: '' });
-    const [itemUnit, setUnit] = useState({ itemUnit: '' })
+    const [itemName, setName] = useState( '' );
+    const [itemQuantity, setQuantity] = useState('' );
+    const [itemUnit, setUnit] = useState( '' )
 
     const handleSubmit = () => {
         event.preventDefault();
@@ -16,26 +16,30 @@ function ShoppingForm({addItem}) {
         addItem(newItem);
 
         console.log(newItem);
+
+        setName('');
+        setQuantity('');
+        setUnit('');
     }
     return (
         <>
             <h3>Add an Item</h3>
             <form onSubmit={handleSubmit}>
                 <input
-                    onChange={(event) => setName({ itemName: event.target.value })}
+                    onChange={(event) => setName( event.target.value )}
                     placeholder="name"
-                    value={itemName.itemName}
+                    value={itemName}
 
                 />
                 <input
-                    onChange={(event) => setQuantity({ itemQuantity: event.target.value })}
+                    onChange={(event) => setQuantity( event.target.value )}
                     placeholder="quantity"
-                    value={itemQuantity.itemQuantity}
+                    value={itemQuantity}
                 />
                 <input
-                    onChange={(event) => setUnit({ itemUnit: event.target.value })}
+                    onChange={(event) => setUnit( event.target.value )}
                     placeholder="quantity"
-                    value={itemUnit.itemUnit}
+                    value={itemUnit}
                 />
                 <input type="submit" value="Save" />
             </form>
