@@ -10,6 +10,37 @@ import './App.css';
 function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
+
+
+    const deleteItem = (itemToDelete) => {
+        console.log('you want to delete something...', itemToDelete);
+
+        axios.delete(`/list/${itemToDelete.id}`)
+        .then(function(response) {
+            console.log('item deleted');
+            getItems();
+        }).catch(function(err) {
+            console.log(err);
+        })
+    };
+
+
+
+
+    
+    const clearList = () => {
+        console.log('clearList func')
+        axios.delete(`/list`)
+        .then( response => {
+            console.log('cleared:', response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+    
+
     const getItems = () => {
 
         axios.get('/list')
@@ -46,6 +77,11 @@ function App() {
                 />
                 <ShoppingList 
                 shoppingList={shoppingList}
+
+                deleteItem={deleteItem}
+
+                clearList={clearList}
+
                 />
             </main>
         </div>
