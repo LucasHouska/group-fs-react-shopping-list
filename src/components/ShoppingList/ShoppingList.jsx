@@ -1,21 +1,23 @@
 import Items from '../Items/Items.jsx'
 
 
-
-
-function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem}) {
-
+function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem, resetItems}) {
         
     const handleClear = () => {
         console.log('handleClear func');
         clearList()
+    }
+
+    const handleReset = () => {
+        console.log(`handleReset func`);
+        resetItems()
     }
     
     return (
         <>
             <div className='shoppingListHeader'>
                 <h3 className='colorfulText'>Shopping List</h3>
-                <button>Reset</button>
+                <button onClick={handleReset}>Reset</button>
                 <button onClick={handleClear}>Clear</button>
             </div>
             <div className='itemList'>

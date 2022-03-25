@@ -75,6 +75,23 @@ router.delete('/:id', (req, res) => {
     
 });
 
+router.put(`/`, (req, res) => {
+    console.log(`marking all items NOT purchased`);
+
+    const queryText = `
+    UPDATE "items"
+    SET "purchased" = FALSE;
+    `;
+
+    pool.query(queryText)
+    .then(result => {
+        res.sendStatus(200);
+    }).catch(err => {
+        console.log(err);
+        res.sendStatus(500);
+    });
+});
+
 router.put('/:id', (req, res) => {
     let id = req.params.id;
 

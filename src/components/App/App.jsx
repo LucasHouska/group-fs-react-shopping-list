@@ -36,7 +36,18 @@ function App() {
             console.log(err);
         })
     };
-    
+
+    const resetItems = () => {
+        console.log('in resetItems');
+        axios.put(`/list`)
+        .then( response => {
+            console.log(`list reset`);
+            getItems();
+        }).catch(function(err) {
+            console.log(err);
+        })
+    };  
+
     const clearList = () => {
         console.log('clearList func')
         axios.delete(`/list`)
