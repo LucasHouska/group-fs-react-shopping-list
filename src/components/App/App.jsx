@@ -79,7 +79,7 @@ function App() {
                 </form>
                 <ShoppingList 
                 shoppingList={shoppingList}
-                clearPurchased={resetItems}
+                resetItems={resetItems}
 
                 deleteItem={deleteItem}
 
