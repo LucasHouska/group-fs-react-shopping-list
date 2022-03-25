@@ -99,6 +99,7 @@ function App() {
                     deleteItem={deleteItem}
                     clearList={clearList}
                     purchaseItem={purchaseItem}
+                    resetItems={resetItems}
                 />
             </main>
         </div>
