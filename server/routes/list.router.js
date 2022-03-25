@@ -53,4 +53,25 @@ router.delete('/:id', (req, res) => {
     
 });
 
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+
+    queryText = `
+        UPDATE "items"
+        SET "purchased" = true
+        WHERE "id" = $1;
+    `;
+    const values = [id];
+    console.log('updated database w/ purchased id#:', id);
+
+    pool.query(queryText, values)
+        .then( result => {
+            res.sendStatus(200);
+        })
+        .catch( err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;
