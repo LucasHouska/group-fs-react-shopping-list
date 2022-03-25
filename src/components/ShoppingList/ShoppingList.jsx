@@ -1,6 +1,5 @@
 import Items from '../Items/Items.jsx'
 
-
 function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem, resetItems}) {
         
     const handleClear = () => {
@@ -10,7 +9,11 @@ function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem, reset
 
     const handleReset = () => {
         console.log(`handleReset func`);
-        resetItems()
+        resetItems();
+    }
+
+    const showHide = () => {
+        setIsShowing(!isShowing)
     }
     
     return (
