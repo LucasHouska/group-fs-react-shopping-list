@@ -3,7 +3,7 @@ import Items from '../Items/Items.jsx'
 
 
 
-function ShoppingList({ shoppingList, clearList, deleteItem}) {
+function ShoppingList({ shoppingList, clearList, deleteItem, purchaseItem}) {
 
         
     const handleClear = () => {
@@ -24,6 +24,7 @@ function ShoppingList({ shoppingList, clearList, deleteItem}) {
                     key = {item.id}
                     item = {item}
                     deleteItem = {deleteItem}
+                    purchaseItem = {purchaseItem}
                     />)}
             </div>
         </>

@@ -11,7 +11,20 @@ function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
 
+    const purchaseItem = (itemToPurchase) => {
+        console.log('purchaseItem func')
 
+        axios.put(`/list/${itemToPurchase.id}`)
+        .then( response => {
+            console.log('purchased:', itemToPurchase.name);
+            console.log(response);
+            getItems();
+        })
+        .catch( error => {
+            console.log(error)
+        })
+    }
+    
     const deleteItem = (itemToDelete) => {
         console.log('you want to delete something...', itemToDelete);
 
@@ -23,10 +36,6 @@ function App() {
             console.log(err);
         })
     };
-
-
-
-
     
     const clearList = () => {
         console.log('clearList func')
@@ -39,7 +48,6 @@ function App() {
             console.log(error)
         })
     }
-    
 
     const getItems = () => {
 
@@ -76,12 +84,10 @@ function App() {
                 addItem={addItem}
                 />
                 <ShoppingList 
-                shoppingList={shoppingList}
-
-                deleteItem={deleteItem}
-
-                clearList={clearList}
-
+                    shoppingList={shoppingList}
+                    deleteItem={deleteItem}
+                    clearList={clearList}
+                    purchaseItem={purchaseItem}
                 />
             </main>
         </div>

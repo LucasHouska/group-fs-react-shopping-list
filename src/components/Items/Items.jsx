@@ -1,16 +1,22 @@
-function Items({item, deleteItem}) {
+function Items({item, deleteItem, purchaseItem}) {
 
     const handleDelete = () => {
-        console.log('clicked');
+        console.log('clicked delete');
 
         deleteItem(item);
     }
+
+    const handlePurchase = () => {
+        console.log('clicked buy');
+        purchaseItem(item);
+    }
+
     return (
         <>
             <div className="item">
                 <p>{item.name}</p>
                 <p>{item.quantity} <span>{item.unit}</span></p>
-                <button>Buy</button>
+                <button onClick={handlePurchase}>Buy</button>
                 <button onClick={handleDelete}>Remove</button>
             </div>
         </>
